@@ -1,0 +1,19 @@
+{
+  "name": "api_challenges_playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "debug": "npx playwright test --ui",
+    "test": "npx playwright test",
+    "api": "npx playwright test --grep @API ",
+    "testEnv": "export NODE_ENV=auto-test npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.48.1",
+    "@types/node": "^22.7.8"
+  }
+}
