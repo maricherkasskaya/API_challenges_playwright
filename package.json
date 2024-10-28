@@ -5,14 +5,14 @@
   "scripts": {
     "debug": "npx playwright test --ui",
     "test": "npx playwright test",
-    "api": "npx playwright test --grep @API ",
-    "testEnv": "export NODE_ENV=auto-test npx playwright test"
+    "api": "npx playwright test --grep @API "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
     "@playwright/test": "^1.48.1",
     "@types/node": "^22.7.8"
   }
