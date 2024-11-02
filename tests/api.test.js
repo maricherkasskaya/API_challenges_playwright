@@ -16,7 +16,6 @@ test.describe ('API challenge', ()=> {
 
         expect(headers).toEqual (expect.objectContaining({'x-challenger':expect.any(String)}));
         expect (response.status()).toBe(201);
-        console.log (token);
         
 });
 
@@ -730,38 +729,7 @@ test ("35. Восстановить прогресс по GUID - PUT /challenger
 
 });
 
-test ("36. Восстановить прогресс по cтарому GUID - PUT /challenger @API", async ({ request }) => {
-    
-    //todo посмотреть почему не зеленеет тест
 
-    //Генерируем новый токен
-    let newToken =faker.string.uuid();
-
-    let getResponse = await request.get(`${URL}challenger/${token}`, {
-        headers: {
-            'x-challenger': token
-        },
-    });
-
-    let newPayload = await getResponse.json(); 
-
-    // Удаляем xAuthToken из новой копии
-    delete newPayload.xAuthToken; 
-
-    // Подставляем newToken в newPayload
-    newPayload['xChallenger'] = newToken;
-    
-    let response = await request.put(`${URL}challenger/${newToken}`, {
-        headers: {
-            'x-challenger': token
-        },
-        data:newPayload
-    });
-
-    //Проверяем статус ответа
-    expect (response.status()).toBe(201);
-
-});
 
 test ("37. Получить список заданий со статусом по GUID из БД - GET / challenger/database / guid @API", async ({ request }) => {
     let response = await request.get(`${URL}challenger/database/${token}`, {
@@ -1271,5 +1239,34 @@ test ("59. Создание максимального количества todo
     });
     //Проверяем статус ответа
     expect(overResponse.status()).toBe(400);
+});
+test ("36. Восстановить прогресс по cтарому GUID - PUT /challenger @API", async ({ request }) => {
+
+    //Генерируем новый токен
+    let newToken =faker.string.uuid();
+    console.log (newToken);
+
+    let getResponse = await request.get(`${URL}challenger/${token}`, {
+        headers: {
+            'x-challenger': token
+        },
+    });
+
+    let newPayload = await getResponse.json(); 
+
+
+    // Подставляем newToken в newPayload
+    newPayload["xChallenger"] = newToken;
+    
+    let response = await request.put(`${URL}challenger/${newToken}`, {
+        headers: {
+            'x-challenger': newToken
+        },
+        data:newPayload
+    });
+
+    //Проверяем статус ответа
+    expect (response.status()).toBe(201);
+
 });
 });
