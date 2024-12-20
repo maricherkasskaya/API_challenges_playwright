@@ -1,9 +1,9 @@
 {
     "base": {
       "logo": "",
-      "project": "jsPlaywrightFinalProjectAPI",
-      "environment": "",
-      "comment": "",
+      "project": "some project",
+      "environment": "some env",
+      "comment": "some comment",
       "reportLink": "",
       "language": "en",
       "allureFolder": "allure-report",
@@ -12,8 +12,8 @@
       "customData": {}
     },
     "telegram": {
-      "token": "${TELEGRAM_CHAT_TOKEN}",
-      "chat": "${TELEGRAM_CHAT_ID}",
+      "token": "",
+      "chat": "",
       "replyTo": ""
     }
   }
