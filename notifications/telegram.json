@@ -13,7 +13,7 @@
     },
     "telegram": {
       "token": "${TELEGRAM_CHAT_TOKEN}",
-      "chat": "-4726045071",
+      "chat": "${TELEGRAM_CHAT_ID}",
       "replyTo": ""
     }
   }
